@@ -4,7 +4,11 @@ RUN apt update
 RUN apt install -y git
 RUN apt install -y curl
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-RUN echo 'export PATH=${HOME}/.linuxbrew/bin:$PATH' >> .bash_profile
+ENV PATH=$PATH:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/
+ENV MANPATH="$MANPATH:/home/linuxbrew/.linuxbrew/share/man"
+ENV INFOPATH="$INFOPATH:/home/linuxbrew/.linuxbrew/share/info"
+ENV HOMEBREW_NO_AUTO_UPDATE=1
+
 RUN brew install mecab
 RUN brew install mecab-ipadic
 
