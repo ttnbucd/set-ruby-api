@@ -6,7 +6,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/', async (req: Request, res: Response) => {
-  console.log(req.body);
   const inputText = req.body.text ?? null;
   if (inputText) {
     const parsedTexts = parseJapanese(inputText);
@@ -41,7 +40,7 @@ try {
 }
 
 function parseJapanese(text: string): string[][] {
-  const command = `echo ${text} | mecab -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd`;
+  const command = `echo ${text} | mecab -d /home/linuxbrew/.linuxbrew/lib/mecab/dic/mecab-ipadic-neologd`; // /usr/local/lib/mecab/dic/mecab-ipadic-neologd
   const output = execSync(command, { encoding: 'utf-8' });
   const result = output
     .trim()
