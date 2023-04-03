@@ -1,6 +1,7 @@
 FROM node:16-bullseye-slim
 
 RUN apt update
+RUN apt install -y build-essential
 RUN apt install -y git
 RUN apt install -y curl
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
