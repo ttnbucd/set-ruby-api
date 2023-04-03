@@ -1,7 +1,7 @@
 FROM node:16-bullseye-slim
 
 RUN apt update
-RUN apt install curl
+RUN apt install -y curl
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 RUN brew install mecab
 RUN brew install mecab-ipadic
