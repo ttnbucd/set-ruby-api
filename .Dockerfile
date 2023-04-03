@@ -1,7 +1,10 @@
 FROM node:16-bullseye-slim
 
+RUN sudo apt update
+RUN sudo apt install curl
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-RUN brew install mecab && brew install mecab-ipadic
+RUN brew install mecab
+RUN brew install mecab-ipadic
 
 WORKDIR /opt
 RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git
