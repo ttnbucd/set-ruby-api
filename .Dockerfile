@@ -4,6 +4,8 @@ RUN apt update
 RUN apt install -y git
 RUN apt install -y curl
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+RUN (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /root/.profile
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 RUN brew install mecab
 RUN brew install mecab-ipadic
 
