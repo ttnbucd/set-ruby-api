@@ -12,7 +12,7 @@ app.post('/', async (req: Request, res: Response) => {
     let outputText = '';
     parsedTexts.forEach((parsedText) => {
       if (parsedText.length > 1) {
-        outputText += parsedText[1].split(',')[8];
+        outputText += parsedText[1].split(',')[7];
       }
     });
     return res.status(200).send({
