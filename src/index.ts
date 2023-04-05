@@ -11,11 +11,11 @@ app.use(function (req, res, next) {
     'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept',
   );
   res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  next();
-});
-
-app.options('/', async (req: Request, res: Response) => {
-  return res.status(201).send('');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  } else {
+    next();
+  }
 });
 
 app.post('/', async (req: Request, res: Response) => {
