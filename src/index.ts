@@ -6,6 +6,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/', async (req: Request, res: Response) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   const inputText = req.body.text ?? null;
   if (inputText) {
     const parsedTexts = parseJapanese(inputText);
